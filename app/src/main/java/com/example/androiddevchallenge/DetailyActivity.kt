@@ -1,7 +1,5 @@
 package com.example.androiddevchallenge
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
