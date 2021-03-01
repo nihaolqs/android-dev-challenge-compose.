@@ -5,8 +5,7 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import kotlinx.android.parcel.IgnoredOnParcel
 import kotlinx.android.parcel.Parcelize
-import kotlinx.android.parcel.RawValue
-import java.util.*
+import java.util.UUID
 
 @Parcelize
 data class Pet(
