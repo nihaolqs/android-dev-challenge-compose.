@@ -41,7 +41,7 @@ class DetailyActivity : AppCompatActivity() {
         val parcelableExtra = intent.getParcelableExtra<Pet>(PET_KEY)
         setContent {
             MyTheme {
-                MyContent(pet = parcelableExtra) {
+                DetailyContent(pet = parcelableExtra) {
                     setResult(RESULT_OK, intent.apply {
                         putExtra(PET_RESULT_KEY, parcelableExtra?.id)
                     })
@@ -54,7 +54,7 @@ class DetailyActivity : AppCompatActivity() {
 
 
 @Composable
-fun MyContent(pet: Pet?, click: () -> Unit) {
+fun DetailyContent(pet: Pet?, click: () -> Unit) {
     if (pet == null) {
         return
     }
@@ -82,16 +82,3 @@ fun MyContent(pet: Pet?, click: () -> Unit) {
         }
     }
 }
-
-//@Preview
-//@Composable
-//fun MyPreview() {
-//    MyContent(
-//        pet = Pet(
-//            "Dog1",
-//            "",
-//            3,
-//            "Yellow"
-//        )
-//    )
-//}
