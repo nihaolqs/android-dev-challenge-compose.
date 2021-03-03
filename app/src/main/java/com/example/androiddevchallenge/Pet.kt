@@ -30,7 +30,7 @@ data class Pet(
     val color: String,
     val id: String = UUID.randomUUID().toString()
 
-) : Parcelable{
+) : Parcelable {
     @IgnoredOnParcel
     var isAdopt: MutableState<Boolean> = mutableStateOf(false)
 }

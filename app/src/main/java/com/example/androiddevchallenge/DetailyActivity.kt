@@ -42,16 +42,18 @@ class DetailyActivity : AppCompatActivity() {
         setContent {
             MyTheme {
                 MyContent(pet = parcelableExtra) {
-                    setResult(RESULT_OK, intent.apply {
-                        putExtra(PET_RESULT_KEY, parcelableExtra?.id)
-                    })
+                    setResult(
+                        RESULT_OK,
+                        intent.apply {
+                            putExtra(PET_RESULT_KEY, parcelableExtra?.id)
+                        }
+                    )
                     finish()
                 }
             }
         }
     }
 }
-
 
 @Composable
 fun MyContent(pet: Pet?, click: () -> Unit) {
@@ -83,9 +85,9 @@ fun MyContent(pet: Pet?, click: () -> Unit) {
     }
 }
 
-//@Preview
-//@Composable
-//fun MyPreview() {
+// @Preview
+// @Composable
+// fun MyPreview() {
 //    MyContent(
 //        pet = Pet(
 //            "Dog1",
@@ -94,4 +96,4 @@ fun MyContent(pet: Pet?, click: () -> Unit) {
 //            "Yellow"
 //        )
 //    )
-//}
+// }

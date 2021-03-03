@@ -23,22 +23,20 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.Column
-
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.Button
 import androidx.compose.material.Card
+import androidx.compose.material.Divider
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.material.Divider
-import androidx.compose.material.Button
-
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -55,7 +53,7 @@ class MainActivity : AppCompatActivity() {
 
     val array = Array(100) {
         Pet(
-            "Dog${it}",
+            "Dog$it",
             "",
             3,
             "Yellow"
@@ -69,7 +67,6 @@ class MainActivity : AppCompatActivity() {
                 MyApp()
             }
         }
-
     }
 
     private val startActivityLauncher: ActivityResultLauncher<Intent> =
@@ -90,7 +87,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
 
     @Preview("Light Theme", widthDp = 360, heightDp = 640)
     @Composable
@@ -139,15 +135,18 @@ class MainActivity : AppCompatActivity() {
                         Text(text = "Age: ${pet.age}")
                     }
                     if (!isAdopt.value) {
-                        Button(onClick = {
-                            startActivityLauncher.launch(
-                                Intent(
-                                    this@MainActivity,
-                                    DetailyActivity::class.java
-                                ).apply {
-                                    putExtra(PET_KEY, pet)
-                                })
-                        }) {
+                        Button(
+                            onClick = {
+                                startActivityLauncher.launch(
+                                    Intent(
+                                        this@MainActivity,
+                                        DetailyActivity::class.java
+                                    ).apply {
+                                        putExtra(PET_KEY, pet)
+                                    }
+                                )
+                            }
+                        ) {
                             Text(text = "Go Adopt")
                         }
                     }
